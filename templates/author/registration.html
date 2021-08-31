@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+{% block 'main_content' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration</title>
+</head>
+
+<body>
+  <div class='container'>
+    <div class="jumbotron">
+      <!-- <h1>{{form.as_p}}</h1> -->
+      <h1>Registration Page</h1>
+      <p>Please fill in the deatils for Registration!</p>
+      <form method="POST">
+        {% csrf_token %}
+        <label for="firstname"><b>First Name:</label><br>
+        <input type="text" id="firstname" name='firstname' placeholder="Enter Your First Name">
+        <label for="lastname"><b>Last Name:</label>
+        <input type="text" id="lastname" name='lastname' placeholder="Enter Your Last Name"><br>
+        <p></p>
+        <label for="email"><b>Email:</label><br>
+        <input type="text" id="email" name='email' placeholder="Enter Your Email address"><br>
+        <p></p>
+        <label for="image"><b>Upload image:</label><br>
+        <input type="file" id="image" name='image' placeholder="Upload here"><br>
+        <label for="password1"><b>Password</b></label><br>
+        <input type="password" placeholder="Enter Password" name="password1" id="password1"><br>
+        <p></p>
+        <label for="password2"><b>Repeat Password</b></label><br>
+        <input type="password" placeholder="Repeat Password" name="password2" id="password2"><br>
+        <p></p>
+        <input type="submit" value="Register" name="registerr">
+        <p></p>
+        <a href="{% url 'login' %}">Login Now!</a>
+      </form>
+    </div>
+</body>
+
+</html>
+{% endblock %}
